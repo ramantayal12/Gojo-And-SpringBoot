@@ -10,6 +10,10 @@ public class HelloRestController {
 
   private final String appName;
 
+    /**
+     * @Value will pick value for key "spring.application.name"
+     * from application.properties file
+     */
   @Autowired
   public HelloRestController(@Value("${spring.application.name}") String appName) {
     this.appName = appName;
