@@ -18,11 +18,12 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>3.1.2</version>
-    <relativePath />
+    <relativePath/>
   </parent>
 
   <dependencies>
 
+    <!-- Minimum Depecdencies required for Spring boot-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -34,6 +35,21 @@
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
+    </dependency>
+
+    <!-- lombok library : for default getters/setters/builders-->
+    <!-- minimum version with java17 is 1.18.30-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.30</version>
+    </dependency>
+
+    <!-- mysql connector is required for creating connection to localhost -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.33</version>
     </dependency>
 
   </dependencies>
