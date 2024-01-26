@@ -1,12 +1,13 @@
-package org.example.SateMachineFlow;
+package org.example.stateMachineFlow;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.example.SateMachineFlow.WorkProgressState.Approved;
-import static org.example.SateMachineFlow.WorkProgressState.Escalated;
-import static org.example.SateMachineFlow.WorkProgressState.Submitted;
+import static org.example.stateMachineFlow.WorkProgressState.Approved;
+import static org.example.stateMachineFlow.WorkProgressState.Escalated;
+import static org.example.stateMachineFlow.WorkProgressState.Submitted;
 
 /**
  * <p>
@@ -22,7 +23,7 @@ import static org.example.SateMachineFlow.WorkProgressState.Submitted;
 @RestController
 public class StateMachinesThroughApiHit {
 
-  @RequestMapping("/hitState/{state}")
+  @GetMapping("/hitState/{state}")
   public String hitState(@PathVariable String state) {
     WorkProgressState workProgressState = switch (state) {
       case "approved" -> Approved;
