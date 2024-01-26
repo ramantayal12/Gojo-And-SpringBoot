@@ -15,4 +15,6 @@ public class Main {
     SpringApplication.run(Main.class, args);
   }
 
+  // random comment for testing github ruleset
+
 }
