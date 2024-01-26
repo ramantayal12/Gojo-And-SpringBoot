@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
   * @EnableAutoConfiguration, and @ComponentScan together.
  */
 @SpringBootApplication
+// @EnableSwagger2
 public class Main {
 
   public static void main(String[] args) {

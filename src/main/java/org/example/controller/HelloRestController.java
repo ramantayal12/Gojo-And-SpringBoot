@@ -1,8 +1,8 @@
-package org.example.Controller;
+package org.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,7 +18,7 @@ public class HelloRestController {
     this.appName = appName;
   }
 
-  @RequestMapping("/hello")
+  @GetMapping("/hello")
   public String sayHi() {
     return "App Name : " + appName;
   }
