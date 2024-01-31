@@ -11,3 +11,16 @@ Mongodb Integration : https://medium.com/@samuelcatalano/connecting-spring-boot-
 MongoDb Installation : https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
 
 Redis Cache : https://medium.com/simform-engineering/spring-boot-caching-with-redis-1a36f719309f
+
+Kafka Integration : 
+
+# Services Start/Restart/Stop
+ - brew services start mysql
+ - redis-cli ping
+ - brew install redis
+ - brew services start redis
+ - brew install kafka
+ - zkserver start
+ - brew services start kafka
+ - brew install mongodb-community
+ - brew services start mongodb/brew/mongodb-community

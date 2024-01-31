@@ -40,9 +40,9 @@ public class SerialisationUtil {
   }
 
   // Method to deserialize a JSON string to an object of specified class
-  public static <T> T deserialize(String value, Class<T> referenceClass) {
+  public static <T> T deserialize(String value, Class<T> referenceClass) throws JsonProcessingException {
     // Using the objectMapper to convert the JSON string to the specified class
-    return objectMapper.convertValue(value, referenceClass);
+    return objectMapper.readValue(value, referenceClass);
   }
 
 }
