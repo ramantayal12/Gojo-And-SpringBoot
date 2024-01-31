@@ -7,11 +7,8 @@ import org.springframework.cache.annotation.EnableCaching;
 /**
  * we’re using @SpringBootApplication as our primary application configuration class. Behind the
  * scenes, that’s equivalent to @Configuration,
- *
+ *<p></p>
  * @EnableAutoConfiguration, and @ComponentScan together.
- */
-
-/**
  * the annotation @EnableCaching to the starter class. It will trigger a post-processor that
  * inspects every Spring bean for the presence of caching annotations on public methods.
  */

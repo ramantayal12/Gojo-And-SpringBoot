@@ -23,7 +23,7 @@
 
   <dependencies>
 
-    <!-- Minimum Depecdencies required for Spring boot-->
+    <!-- Minimum Dependencies required for Spring boot-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -73,6 +73,13 @@
       <artifactId>spring-data-redis</artifactId>
       <version>3.2.0</version>
     </dependency>
+
+    <!--    Dependency requirement for kafka integration-->
+    <dependency>
+      <groupId>org.springframework.kafka</groupId>
+      <artifactId>spring-kafka</artifactId>
+    </dependency>
+
 
   </dependencies>
 
