@@ -22,6 +22,8 @@ public class Main {
 
   @Bean
   public CacheManager cacheManager() {
+
+    // this method is required for redis caching
     return new ConcurrentMapCacheManager("entities");
   }
 

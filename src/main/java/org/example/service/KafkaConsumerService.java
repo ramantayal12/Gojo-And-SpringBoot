@@ -3,6 +3,7 @@ package org.example.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.example.models.Student;
 import org.example.serialisation.SerialisationUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ public class KafkaConsumerService {
 
     private final StudentRedisService studentRedisService;
 
+    @Autowired
     public KafkaConsumerService(StudentRedisService studentRedisService) {
         this.studentRedisService = studentRedisService;
     }
