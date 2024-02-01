@@ -7,12 +7,7 @@ import org.example.service.StudentRedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/redis")
@@ -40,7 +35,7 @@ public class StudentRedisController {
    */
   @GetMapping(path = "/find/{studentId}")
   @Cacheable(value = "product", key = "#studentId")
-  public ResponseEntity<String> findUser(@RequestParam("studentId") Long studentId)
+  public ResponseEntity<String> findUser(@PathVariable Long studentId)
       throws Exception {
     Student responseEntity = studentRedisService.findUserById(studentId);
     String response = SerialisationUtil.serialize(responseEntity);
