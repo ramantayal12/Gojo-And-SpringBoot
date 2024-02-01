@@ -12,7 +12,7 @@ MongoDb Installation : https://www.mongodb.com/docs/manual/tutorial/install-mong
 
 Redis Cache : https://medium.com/simform-engineering/spring-boot-caching-with-redis-1a36f719309f
 
-Kafka Integration : 
+Kafka Integration : https://medium.com/@abhishekranjandev/a-comprehensive-guide-to-integrating-kafka-in-a-spring-boot-application-a4b912aee62e
 
 # Services Start/Restart/Stop
  - brew services start mysql
@@ -24,3 +24,4 @@ Kafka Integration :
  - brew services start kafka
  - brew install mongodb-community
  - brew services start mongodb/brew/mongodb-community
+ - brew install --cask docker

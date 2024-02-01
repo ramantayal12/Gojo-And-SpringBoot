@@ -2,7 +2,10 @@ package org.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
+import org.springframework.context.annotation.Bean;
 
 /**
  * we’re using @SpringBootApplication as our primary application configuration class. Behind the
@@ -16,6 +19,11 @@ import org.springframework.cache.annotation.EnableCaching;
 @EnableCaching
 // @EnableSwagger2
 public class Main {
+
+  @Bean
+  public CacheManager cacheManager() {
+    return new ConcurrentMapCacheManager("entities");
+  }
 
   public static void main(String[] args) {
     SpringApplication.run(Main.class, args);
