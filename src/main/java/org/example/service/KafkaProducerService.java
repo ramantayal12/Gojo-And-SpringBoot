@@ -1,7 +1,7 @@
 package org.example.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.example.models.Student;
+import org.example.entity.StudentEntity;
 import org.example.serialisation.SerialisationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -21,7 +21,7 @@ public class KafkaProducerService {
         kafkaTemplate.send(topic, message);
     }
 
-    public void publishStudent(String topic, Student student) throws JsonProcessingException {
-        kafkaTemplate.send(topic, SerialisationUtil.serialize(student));
+    public void publishStudent(String topic, StudentEntity studentEntity) throws JsonProcessingException {
+        kafkaTemplate.send(topic, SerialisationUtil.serialize(studentEntity));
     }
 }

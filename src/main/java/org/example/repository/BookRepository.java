@@ -1,6 +1,6 @@
 package org.example.repository;
 
-import org.example.models.Book;
+import org.example.entity.Book;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface BookRepository extends MongoRepository<Book, String> {

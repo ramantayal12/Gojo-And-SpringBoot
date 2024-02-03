@@ -1,13 +1,12 @@
 package org.example.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import org.example.models.Student;
+import org.example.dto.StudentDto;
 import org.example.serialisation.SerialisationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import static org.example.constants.Constants.*;
+import static org.example.constants.KafkaConstants.*;
 
 /**
  * Run your Spring Boot application and use a tool like Postman or curl to send a POST request to http://localhost:8080/send?message=Hello_Kafka. The message will be sent to the Kafka topic, and the consumer will receive and print the message to the console.
@@ -15,11 +14,11 @@ import static org.example.constants.Constants.*;
 @Service
 public class KafkaConsumerService {
 
-    private final StudentRedisService studentRedisService;
+    private final StudentServiceWithCache studentServiceWithCache;
 
     @Autowired
-    public KafkaConsumerService(StudentRedisService studentRedisService) {
-        this.studentRedisService = studentRedisService;
+    public KafkaConsumerService(StudentServiceWithCache studentServiceWithCache) {
+        this.studentServiceWithCache = studentServiceWithCache;
     }
 
     @KafkaListener(topics = KAFKA_MY_TOPIC, groupId = KAFKA_GROUP_ID)
@@ -32,10 +31,11 @@ public class KafkaConsumerService {
      * consumer will try to consume it again and again.
      */
     @KafkaListener(topics = KAFKA_STUDENT_TOPIC, groupId = KAFKA_GROUP_ID)
-    public void listenStudent(String serialisedStudent) throws JsonProcessingException {
+    public void listenStudent(String serialisedStudent) throws Exception {
 
         // this listener will consume message as student and will write it in db
-        Student student = SerialisationUtil.deserialize(serialisedStudent, Student.class);
-        studentRedisService.saveUser(student);
+        StudentDto studentDto = SerialisationUtil.deserialize(serialisedStudent, StudentDto.class);
+        studentServiceWithCache.saveStudent(studentDto);
+
     }
 }
