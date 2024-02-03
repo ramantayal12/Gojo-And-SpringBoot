@@ -1,4 +1,4 @@
-package org.example.models;
+package org.example.entity;
 
 
 import jakarta.persistence.Entity;
@@ -12,11 +12,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Data
+@Data // contains both @Getter and @Setter
 @Entity // This tells Hibernate to make a table out of this class
 @Builder
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {

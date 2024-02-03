@@ -1,5 +1,7 @@
 package org.example;
 
+import static org.example.constants.RedisConstants.CACHE_NAME;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.CacheManager;
@@ -22,7 +24,10 @@ public class Main {
 
   @Bean
   public CacheManager cacheManager() {
-    return new ConcurrentMapCacheManager("entities");
+
+    // this method is required for redis caching
+    return new ConcurrentMapCacheManager(CACHE_NAME);
+
   }
 
   public static void main(String[] args) {

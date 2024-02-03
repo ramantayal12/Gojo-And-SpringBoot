@@ -1,16 +1,14 @@
 package org.example.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Optional;
-import org.example.models.Book;
+import org.example.entity.Book;
 import org.example.repository.BookRepository;
 import org.example.repository.UserRepository;
-import org.example.models.User;
+import org.example.entity.User;
 import org.example.serialisation.SerialisationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,6 +1,6 @@
 package org.example.constants;
 
-public class Constants {
+public class KafkaConstants {
 
     public static final String KAFKA_GROUP_ID = "my-group-id";
 

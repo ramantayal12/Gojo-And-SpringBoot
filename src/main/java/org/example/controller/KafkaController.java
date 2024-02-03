@@ -1,7 +1,7 @@
 package org.example.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.example.models.Student;
+import org.example.entity.StudentEntity;
 import org.example.service.KafkaProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.example.constants.Constants.KAFKA_MY_TOPIC;
-import static org.example.constants.Constants.KAFKA_STUDENT_TOPIC;
+import static org.example.constants.KafkaConstants.KAFKA_MY_TOPIC;
+import static org.example.constants.KafkaConstants.KAFKA_STUDENT_TOPIC;
 
 @RestController
 public class KafkaController {
@@ -30,8 +30,8 @@ public class KafkaController {
     }
 
     @PostMapping("/kafka/publishStudent")
-    public ResponseEntity<String> publishStudentInKafka(@RequestBody Student student) throws JsonProcessingException {
-        kafkaProducerService.publishStudent(KAFKA_STUDENT_TOPIC, student);
+    public ResponseEntity<String> publishStudentInKafka(@RequestBody StudentEntity studentEntity) throws JsonProcessingException {
+        kafkaProducerService.publishStudent(KAFKA_STUDENT_TOPIC, studentEntity);
         return ResponseEntity.ok("Accepted Student in Kafka");
     }
 }
