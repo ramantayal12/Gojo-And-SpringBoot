@@ -1,12 +1,13 @@
-package org.example.stateMachineFlow.manual;
+package org.example.stateMachineFlow;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.example.stateMachineFlow.manual.WorkProgressState.Approved;
-import static org.example.stateMachineFlow.manual.WorkProgressState.Escalated;
-import static org.example.stateMachineFlow.manual.WorkProgressState.Submitted;
+import static org.example.stateMachineFlow.WorkProgressState.Approved;
+import static org.example.stateMachineFlow.WorkProgressState.Escalated;
+import static org.example.stateMachineFlow.WorkProgressState.Submitted;
 
 /**
  * <p>
