@@ -1,4 +1,4 @@
-package org.example.stateMachineFlow;
+package org.example.stateMachineFlow.manual;
 
 /**
  * This file defines an enum for the different states of a work progress.
