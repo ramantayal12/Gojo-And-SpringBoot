@@ -84,6 +84,7 @@
       <artifactId>spring-kafka</artifactId>
     </dependency>
 
+    <!-- Dependency for Grafana -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
@@ -94,6 +95,12 @@
       <scope>runtime</scope>
     </dependency>
 
+    <!-- Dependency for Spring state machine-->
+    <dependency>
+      <groupId>org.springframework.statemachine</groupId>
+      <artifactId>spring-statemachine-core</artifactId>
+      <version>3.2.0</version>
+    </dependency>
 
 
   </dependencies>
