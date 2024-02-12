@@ -2,7 +2,7 @@ package org.example.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.example.entity.StudentEntity;
-import org.example.kafkaService.KafkaProducerService;
+import org.example.service.KafkaProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
