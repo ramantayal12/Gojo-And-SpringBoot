@@ -14,7 +14,9 @@ public class IdGeneratorImpl implements IdGenerator {
   private static final int RANDOM_BOUND_LOWER = 1000; // Min value for the random number
   private static final int RANDOM_DIGITS = 4; // Number of digits for the random number
 
-  // Singleton is the default scope of all beans defined in Spring
+  /**
+   * Singleton is the default scope of all beans defined in Spring
+    */
   @Bean
   public SecureRandom initIdGenerator() {
     this.secureRandom = new SecureRandom();
