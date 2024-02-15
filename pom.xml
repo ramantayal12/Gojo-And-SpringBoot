@@ -9,21 +9,65 @@
   <version>1.0-SNAPSHOT</version>
 
   <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <java.version>17</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring.boot.version>3.1.2</spring.boot.version>
+    <lombok.version>1.18.30</lombok.version>
+    <mysql.connector.version>8.0.33</mysql.connector.version>
+    <springdoc.openapi.version>2.3.0</springdoc.openapi.version>
+    <spring.statemachine.version>3.2.0</spring.statemachine.version>
   </properties>
 
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.1.2</version>
-    <relativePath/>
-  </parent>
+  <dependencyManagement>
+    <dependencies>
+      <!-- Spring Boot Starter Parent -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring.boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- Lombok Library -->
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+      </dependency>
+
+      <!-- MySQL Connector -->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.connector.version}</version>
+      </dependency>
+
+      <!-- Springdoc OpenAPI -->
+      <dependency>
+        <groupId>org.springdoc</groupId>
+        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        <version>${springdoc.openapi.version}</version>
+      </dependency>
+
+      <!-- Spring State Machine -->
+      <dependency>
+        <groupId>org.springframework.statemachine</groupId>
+        <artifactId>spring-statemachine-core</artifactId>
+        <version>${spring.statemachine.version}</version>
+      </dependency>
+
+      <!-- OkHttp Integration -->
+      <dependency>
+        <groupId>com.squareup.okhttp3</groupId>
+        <artifactId>okhttp</artifactId>
+        <version>4.12.0</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
-
-    <!-- Minimum Dependencies required for Spring boot-->
+    <!-- Spring Boot Starter Dependencies -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -37,72 +81,36 @@
       <artifactId>h2</artifactId>
     </dependency>
 
-    <!-- lombok library : for default getters/setters/builders-->
-    <!-- minimum version with java17 is 1.18.30-->
+    <!-- Lombok Library -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.30</version>
+      <scope>provided</scope>
     </dependency>
 
-    <!-- mysql connector is required for creating connection to localhost -->
+    <!-- MySQL Connector -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.33</version>
     </dependency>
 
-    <!--    Spring Boot 3.x requires to use version 2 of springdoc-openapi:-->
-    <!--    springdoc-openapi dependency already includes Swagger UI-->
+    <!-- Springdoc OpenAPI -->
     <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-      <version>2.3.0</version>
     </dependency>
 
-    <!--    Dependency for mongodb Integration -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-mongodb</artifactId>
-    </dependency>
-
-    <!--    dependency for redis integration -->
-    <!--    redis is mainly used for caching -->
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.data</groupId>-->
-<!--      <artifactId>spring-data-redis</artifactId>-->
-<!--      <version>3.2.0</version>-->
-<!--    </dependency>-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-cache</artifactId>
-    </dependency>
-
-    <!--    Dependency requirement for kafka integration-->
-    <dependency>
-      <groupId>org.springframework.kafka</groupId>
-      <artifactId>spring-kafka</artifactId>
-    </dependency>
-
-    <!-- Dependency for Grafana -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.micrometer</groupId>
-      <artifactId>micrometer-registry-prometheus</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-
-    <!-- Dependency for Spring state machine-->
+    <!-- Spring State Machine -->
     <dependency>
       <groupId>org.springframework.statemachine</groupId>
       <artifactId>spring-statemachine-core</artifactId>
-      <version>3.2.0</version>
     </dependency>
 
-
+    <!-- OkHttp Integration -->
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+    </dependency>
   </dependencies>
 
 </project>

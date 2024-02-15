@@ -12,6 +12,7 @@
  - Models/Entities : https://www.baeldung.com/java-entity-vs-dto#:~:text=In%20our%20example%2C%20the%20entities,the%20Model%20or%20Domain%20Model.
  - Error handling in Spring Boot : https://medium.com/@aedemirsen/spring-boot-global-exception-handler-842d7143cf2a
  - Java8 Time Library : https://www.baeldung.com/java-8-date-time-intro
+ - Eureka Service Discovery - https://medium.com/@mohamed.enn/service-discovery-in-a-spring-microservices-9c2a938289c7
 
 # Services Start/Restart/Stop
  - brew services start mysql
