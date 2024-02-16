@@ -12,15 +12,20 @@ import org.springframework.context.annotation.Bean;
 /**
  * we’re using @SpringBootApplication as our primary application configuration class. Behind the
  * scenes, that’s equivalent to @Configuration,
- *<p></p>
- * @EnableAutoConfiguration, and @ComponentScan together.
- * the annotation @EnableCaching to the starter class. It will trigger a post-processor that
- * inspects every Spring bean for the presence of caching annotations on public methods.
+ * <p></p>
+ *
+ * @EnableAutoConfiguration, and @ComponentScan together. the annotation @EnableCaching to the
+ * starter class. It will trigger a post-processor that inspects every Spring bean for the presence
+ * of caching annotations on public methods.
  */
 @SpringBootApplication
 @EnableCaching
 // @EnableSwagger2
 public class Main {
+
+  public static void main(String[] args) {
+    SpringApplication.run(Main.class, args);
+  }
 
   @Bean
   public CacheManager cacheManager() {
@@ -28,10 +33,6 @@ public class Main {
     // this method is required for redis caching
     return new ConcurrentMapCacheManager(CACHE_NAME);
 
-  }
-
-  public static void main(String[] args) {
-    SpringApplication.run(Main.class, args);
   }
 
 }

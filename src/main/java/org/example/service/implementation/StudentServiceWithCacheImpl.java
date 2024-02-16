@@ -1,10 +1,9 @@
 package org.example.service.implementation;
 
-import java.util.Objects;
 import org.example.dto.StudentDto;
+import org.example.entity.StudentEntity;
 import org.example.exception.StudentAlreadyExistsException;
 import org.example.exception.StudentNotFoundException;
-import org.example.entity.StudentEntity;
 import org.example.repository.StudentRepoWithRedis;
 import org.example.service.StudentServiceWithCache;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,7 @@ public class StudentServiceWithCacheImpl implements StudentServiceWithCache {
     var existingEntity = studentRepoWithRedis.findById(studentDto.getId());
 
     // if entity already exists in db then don't insert it
-    if(existingEntity.isPresent()){
+    if (existingEntity.isPresent()) {
       throw new StudentAlreadyExistsException("Student Already Exists in Db");
     }
     StudentEntity studentEntity = StudentEntity.builder()

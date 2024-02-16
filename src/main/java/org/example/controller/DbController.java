@@ -3,9 +3,9 @@ package org.example.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.Optional;
 import org.example.entity.Book;
+import org.example.entity.User;
 import org.example.repository.BookRepository;
 import org.example.repository.UserRepository;
-import org.example.entity.User;
 import org.example.serialisation.SerialisationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -61,7 +61,7 @@ public class DbController {
   @PostMapping(path = "/book/add")
   public ResponseEntity<Book> addNewBook(
       @RequestBody Book book
-  ){
+  ) {
     return ResponseEntity.ok(bookRepository.save(book));
   }
 

@@ -1,12 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>Gojo-And-SpringBoot</artifactId>
+
+  <dependencies>
+
+    <!-- Minimum Dependencies required for Spring boot-->
+    <dependency>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>h2</artifactId>
+      <groupId>com.h2database</groupId>
+    </dependency>
+
+    <!-- lombok library : for default getters/setters/builders-->
+    <!-- minimum version with java17 is 1.18.30-->
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+      <version>1.18.30</version>
+    </dependency>
+
+    <!-- mysql connector is required for creating connection to localhost -->
+    <dependency>
+      <artifactId>mysql-connector-java</artifactId>
+      <groupId>mysql</groupId>
+      <version>8.0.33</version>
+    </dependency>
+
+    <!--    Spring Boot 3.x requires to use version 2 of springdoc-openapi:-->
+    <!--    springdoc-openapi dependency already includes Swagger UI-->
+    <dependency>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <groupId>org.springdoc</groupId>
+      <version>2.3.0</version>
+    </dependency>
+
+    <!--    Dependency for mongodb Integration -->
+    <dependency>
+      <artifactId>spring-boot-starter-data-mongodb</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+
+    <!--    dependency for redis integration -->
+    <!--    redis is mainly used for caching -->
+    <!--    <dependency>-->
+    <!--      <groupId>org.springframework.data</groupId>-->
+    <!--      <artifactId>spring-data-redis</artifactId>-->
+    <!--      <version>3.2.0</version>-->
+    <!--    </dependency>-->
+    <dependency>
+      <artifactId>spring-boot-starter-cache</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+
+    <!--    Dependency requirement for kafka integration-->
+    <dependency>
+      <artifactId>spring-kafka</artifactId>
+      <groupId>org.springframework.kafka</groupId>
+    </dependency>
+
+    <!-- Dependency for Grafana -->
+    <dependency>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>micrometer-registry-prometheus</artifactId>
+      <groupId>io.micrometer</groupId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- Dependency for Spring state machine-->
+    <dependency>
+      <artifactId>spring-statemachine-core</artifactId>
+      <groupId>org.springframework.statemachine</groupId>
+      <version>3.2.0</version>
+    </dependency>
+
+
+  </dependencies>
+  <groupId>org.example</groupId>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.example</groupId>
-  <artifactId>Gojo-And-SpringBoot</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <relativePath/>
+    <version>3.1.2</version>
+  </parent>
 
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
@@ -14,95 +103,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.1.2</version>
-    <relativePath/>
-  </parent>
-
-  <dependencies>
-
-    <!-- Minimum Dependencies required for Spring boot-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-    </dependency>
-
-    <!-- lombok library : for default getters/setters/builders-->
-    <!-- minimum version with java17 is 1.18.30-->
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.30</version>
-    </dependency>
-
-    <!-- mysql connector is required for creating connection to localhost -->
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.33</version>
-    </dependency>
-
-    <!--    Spring Boot 3.x requires to use version 2 of springdoc-openapi:-->
-    <!--    springdoc-openapi dependency already includes Swagger UI-->
-    <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-      <version>2.3.0</version>
-    </dependency>
-
-    <!--    Dependency for mongodb Integration -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-mongodb</artifactId>
-    </dependency>
-
-    <!--    dependency for redis integration -->
-    <!--    redis is mainly used for caching -->
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.data</groupId>-->
-<!--      <artifactId>spring-data-redis</artifactId>-->
-<!--      <version>3.2.0</version>-->
-<!--    </dependency>-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-cache</artifactId>
-    </dependency>
-
-    <!--    Dependency requirement for kafka integration-->
-    <dependency>
-      <groupId>org.springframework.kafka</groupId>
-      <artifactId>spring-kafka</artifactId>
-    </dependency>
-
-    <!-- Dependency for Grafana -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.micrometer</groupId>
-      <artifactId>micrometer-registry-prometheus</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-
-    <!-- Dependency for Spring state machine-->
-    <dependency>
-      <groupId>org.springframework.statemachine</groupId>
-      <artifactId>spring-statemachine-core</artifactId>
-      <version>3.2.0</version>
-    </dependency>
-
-
-  </dependencies>
+  <version>1.0-SNAPSHOT</version>
 
 </project>

@@ -1,11 +1,9 @@
 package org.example.stateMachineFlow.manual;
 
 /**
- * This file defines an enum for the different states of a work progress.
- * The states are:
- *   - Submitted: The work has been submitted by the employee.
- *   - Escalated: The work has been escalated to the team leader.
- *   - Approved: The work has been approved by the department manager.
+ * This file defines an enum for the different states of a work progress. The states are: -
+ * Submitted: The work has been submitted by the employee. - Escalated: The work has been escalated
+ * to the team leader. - Approved: The work has been approved by the department manager.
  */
 
 /**
@@ -48,5 +46,6 @@ public enum WorkProgressState {
   };
 
   public abstract String responsiblePerson();
+
   public abstract WorkProgressState nextState();
 }
