@@ -17,6 +17,8 @@ import org.springframework.context.annotation.Configuration;
  * initialization process. This ensures consistency and avoids unnecessary overhead from creating
  * multiple instances of ObjectMapper.
  */
+
+// Note : creating a static method this way isn't preferred
 @Configuration
 public class SerialisationUtil {
 
