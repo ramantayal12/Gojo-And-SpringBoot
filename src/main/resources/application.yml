@@ -9,8 +9,8 @@ spring:
       ddl-auto: update
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/${DATABASE_NAME:curses}
-    username: ${username}
-    password: ${password}
+    username: ${username:root}
+    password: ${password:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
     # ${MYSQL_HOST:localhost} : should be mentioned in env variables
     # properties for database connection
@@ -19,6 +19,11 @@ spring:
       host: localhost
       port: 27017
       database: books
+  cassandra:
+    keyspaceName: eventDatabase
+    port: 9042
+    contact-points: 127.0.0.1
+    schemaAction: CREATE_IF_NOT_EXISTS
   cache:
     type: redis
     host: localhost
