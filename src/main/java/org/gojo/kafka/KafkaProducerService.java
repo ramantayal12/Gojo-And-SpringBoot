@@ -1,4 +1,4 @@
-package org.gojo.service;
+package org.gojo.kafka;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.gojo.entity.StudentEntity;

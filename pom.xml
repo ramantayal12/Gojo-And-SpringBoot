@@ -75,12 +75,21 @@
 <!--      <artifactId>spring-data-redis</artifactId>-->
 <!--      <version>3.2.0</version>-->
 <!--    </dependency>-->
+
+    <!-- dependency for redis configuration -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+      <version>2.7.2</version>
+    </dependency>
+
+    <!-- dependency for heap based caching -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-cache</artifactId>
     </dependency>
 
-    <!-- dependency for spring boot kafka integration -->
+    <!-- dependency for spring boot cassandra integration -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-cassandra</artifactId>

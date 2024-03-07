@@ -2,7 +2,7 @@ package org.gojo.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.gojo.entity.StudentEntity;
-import org.gojo.service.KafkaProducerService;
+import org.gojo.kafka.KafkaProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

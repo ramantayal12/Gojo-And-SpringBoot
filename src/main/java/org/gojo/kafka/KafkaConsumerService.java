@@ -1,9 +1,11 @@
-package org.gojo.service;
+package org.gojo.kafka;
 
 import org.gojo.dto.StudentDto;
 import org.gojo.serialisation.SerialisationUtil;
+import org.gojo.service.StudentServiceWithCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Service;
 
 import static org.gojo.constants.KafkaConstants.*;
@@ -31,7 +33,7 @@ public class KafkaConsumerService {
      * consumer will try to consume it again and again.
      */
     @KafkaListener(topics = KAFKA_STUDENT_TOPIC, groupId = KAFKA_GROUP_ID)
-    public void listenStudent(String serialisedStudent) throws Exception {
+    public void listenStudent(String serialisedStudent, Acknowledgment acknowledgment) throws Exception {
 
         // this listener will consume message as student and will write it in db
         StudentDto studentDto = SerialisationUtil.deserialize(serialisedStudent, StudentDto.class);
