@@ -19,11 +19,6 @@ spring:
       host: localhost
       port: 27017
       database: books
-  cassandra:
-    keyspaceName: eventDatabase
-    port: 9042
-    contact-points: 127.0.0.1
-    schemaAction: CREATE_IF_NOT_EXISTS
   cache:
     type: redis
     host: localhost

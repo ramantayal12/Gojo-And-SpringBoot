@@ -25,8 +25,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @AllArgsConstructor
 public class StudentEntity extends BaseEntity implements Serializable {
 
-  @Id
-  private Long id;
   private String name;
   private String email;
   private String contact;

@@ -76,6 +76,12 @@
 <!--      <version>3.2.0</version>-->
 <!--    </dependency>-->
 
+    <dependency>
+      <groupId>jakarta.persistence</groupId>
+      <artifactId>jakarta.persistence-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+
     <!-- dependency for redis configuration -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -90,10 +96,10 @@
     </dependency>
 
     <!-- dependency for spring boot cassandra integration -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-cassandra</artifactId>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.boot</groupId>-->
+<!--      <artifactId>spring-boot-starter-data-cassandra</artifactId>-->
+<!--    </dependency>-->
 
     <!--    Dependency requirement for kafka integration-->
     <dependency>
