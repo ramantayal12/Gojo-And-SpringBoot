@@ -23,6 +23,13 @@ public class KafkaController {
     this.kafkaProducerService = kafkaProducerService;
   }
 
+  @PostMapping("/kafka/publish-message-with-topic")
+  public ResponseEntity<String> publishKafkaMessageWithTopic(
+      @RequestParam("message") String message, @RequestParam("topic") String topic) {
+    kafkaProducerService.sendMessage(topic, message);
+    return ResponseEntity.ok("Accepted");
+  }
+
   @PostMapping("/kafka/publishMessage")
   public ResponseEntity<String> publishKafkaMessage(@RequestParam("message") String message) {
     kafkaProducerService.sendMessage(KAFKA_MY_TOPIC, message);
