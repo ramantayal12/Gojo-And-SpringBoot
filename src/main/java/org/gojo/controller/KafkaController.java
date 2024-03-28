@@ -16,22 +16,30 @@ import static org.gojo.constants.KafkaConstants.KAFKA_STUDENT_TOPIC;
 @RestController
 public class KafkaController {
 
-    private final KafkaProducerService kafkaProducerService;
+  private final KafkaProducerService kafkaProducerService;
 
-    @Autowired
-    public KafkaController(KafkaProducerService kafkaProducerService) {
-        this.kafkaProducerService = kafkaProducerService;
-    }
+  @Autowired
+  public KafkaController(KafkaProducerService kafkaProducerService) {
+    this.kafkaProducerService = kafkaProducerService;
+  }
 
-    @PostMapping("/kafka/publishMessage")
-    public ResponseEntity<String> publishKafkaMessage(@RequestParam("message") String message) {
-        kafkaProducerService.sendMessage(KAFKA_MY_TOPIC, message);
-        return ResponseEntity.ok("Accepted");
-    }
+  @PostMapping("/kafka/publish-message-with-topic")
+  public ResponseEntity<String> publishKafkaMessageWithTopic(
+      @RequestParam("message") String message, @RequestParam("topic") String topic) {
+    kafkaProducerService.sendMessage(topic, message);
+    return ResponseEntity.ok("Accepted");
+  }
 
-    @PostMapping("/kafka/publishStudent")
-    public ResponseEntity<String> publishStudentInKafka(@RequestBody StudentEntity studentEntity) throws JsonProcessingException {
-        kafkaProducerService.publishStudent(KAFKA_STUDENT_TOPIC, studentEntity);
-        return ResponseEntity.ok("Accepted Student in Kafka");
-    }
+  @PostMapping("/kafka/publishMessage")
+  public ResponseEntity<String> publishKafkaMessage(@RequestParam("message") String message) {
+    kafkaProducerService.sendMessage(KAFKA_MY_TOPIC, message);
+    return ResponseEntity.ok("Accepted");
+  }
+
+  @PostMapping("/kafka/publishStudent")
+  public ResponseEntity<String> publishStudentInKafka(@RequestBody StudentEntity studentEntity)
+      throws JsonProcessingException {
+    kafkaProducerService.publishStudent(KAFKA_STUDENT_TOPIC, studentEntity);
+    return ResponseEntity.ok("Accepted Student in Kafka");
+  }
 }
