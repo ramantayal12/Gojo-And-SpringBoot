@@ -81,10 +81,10 @@
     </dependency>
 
     <!-- dependency for spring boot kafka integration -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-cassandra</artifactId>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.boot</groupId>-->
+<!--      <artifactId>spring-boot-starter-data-cassandra</artifactId>-->
+<!--    </dependency>-->
 
     <!--    Dependency requirement for kafka integration-->
     <dependency>
@@ -101,6 +101,12 @@
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-registry-prometheus</artifactId>
       <scope>runtime</scope>
+    </dependency>
+
+    <!-- hibernate dependency -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
     </dependency>
 
     <!-- Dependency for Spring state machine-->
