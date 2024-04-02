@@ -9,16 +9,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.gojo.entity.base.BaseEntity;
 
 @Data // contains both @Getter and @Setter
 @Entity // This tells Hibernate to make a table out of this class
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class User extends BaseEntity {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
   private long userId;
   private String userName;
   private String userEmail;

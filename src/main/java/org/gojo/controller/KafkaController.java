@@ -23,13 +23,14 @@ public class KafkaController {
         this.kafkaProducerService = kafkaProducerService;
     }
 
-    @PostMapping("/kafka/publishMessage")
-    public ResponseEntity<String> publishKafkaMessage(@RequestParam("message") String message) {
-        kafkaProducerService.sendMessage(KAFKA_MY_TOPIC, message);
+    @PostMapping("/kafka/publish-message")
+    public ResponseEntity<String> publishKafkaMessage(@RequestParam("message") String message,
+        @RequestParam("topic") String topic) {
+        kafkaProducerService.sendMessage(topic, message);
         return ResponseEntity.ok("Accepted");
     }
 
-    @PostMapping("/kafka/publishStudent")
+    @PostMapping("/kafka/publish-student")
     public ResponseEntity<String> publishStudentInKafka(@RequestBody StudentEntity studentEntity) throws JsonProcessingException {
         kafkaProducerService.publishStudent(KAFKA_STUDENT_TOPIC, studentEntity);
         return ResponseEntity.ok("Accepted Student in Kafka");

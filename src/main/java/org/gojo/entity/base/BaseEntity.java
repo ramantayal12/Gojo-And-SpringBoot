@@ -6,6 +6,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Version;
 import java.time.LocalDateTime;
@@ -22,6 +23,7 @@ public class BaseEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @jakarta.persistence.Column(name = "id", nullable = false, updatable = false)
   @JsonProperty(value = "id")
+  @Id
   private Long id;
 
   @Version

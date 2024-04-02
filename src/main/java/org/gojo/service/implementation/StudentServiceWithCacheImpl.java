@@ -28,7 +28,6 @@ public class StudentServiceWithCacheImpl implements StudentServiceWithCache {
       throw new StudentAlreadyExistsException("Student Already Exists in Db");
     }
     StudentEntity studentEntity = StudentEntity.builder()
-        .id(studentDto.getId())
         .name(studentDto.getName())
         .contact(studentDto.getContact())
         .email(studentDto.getEmail())
