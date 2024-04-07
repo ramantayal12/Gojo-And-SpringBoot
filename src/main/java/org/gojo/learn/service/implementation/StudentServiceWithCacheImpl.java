@@ -20,12 +20,12 @@ public class StudentServiceWithCacheImpl implements StudentServiceWithCache {
   }
 
   @Override
-  public StudentEntity saveStudent(StudentDto studentDto) {
-    var existingEntity = studentRepoWithRedis.findById(studentDto.getId());
+  public StudentEntity saveStudent(StudentDto studentDto) throws StudentAlreadyExistsException {
+    var existingEntity = studentRepoWithRedis.findById(studentDto.getSid());
 
     // if entity already exists in db then don't insert it
     if (existingEntity.isPresent()) {
-      throw new StudentAlreadyExistsException("Student Already Exists in Db");
+      throw new StudentAlreadyExistsException();
     }
     StudentEntity studentEntity = StudentEntity.builder()
         .name(studentDto.getName())
@@ -36,8 +36,8 @@ public class StudentServiceWithCacheImpl implements StudentServiceWithCache {
   }
 
   @Override
-  public StudentEntity findStudentById(Long id) {
+  public StudentEntity findStudentById(Long id) throws StudentNotFoundException {
     return studentRepoWithRedis.findById(id)
-        .orElseThrow(() -> new StudentNotFoundException("Student not found in DB"));
+        .orElseThrow(StudentNotFoundException::new);
   }
 }

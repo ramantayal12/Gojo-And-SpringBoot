@@ -1,4 +1,4 @@
-package org.gojo.learn.controller;
+package org.gojo.learn.controller.kafka;
 
 import static org.gojo.learn.constants.KafkaConstants.KAFKA_STUDENT_TOPIC;
 

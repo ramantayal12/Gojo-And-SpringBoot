@@ -22,25 +22,40 @@ Models/Entities : https://www.baeldung.com/java-entity-vs-dto#:~:text=In%20our%2
 
 # Services Start/Restart/Stop
 
-- brew services start mysql
-- redis-cli ping
-- brew install redis
-- brew services start redis
-- brew install kafka
-- brew install zookeeper
-- zkserver start
-- brew services start kafka
-- brew install mongodb-community
-- brew services start mongodb/brew/mongodb-community
-- brew install --cask docker
+- Install Mysql 
+  - `brew services start mysql`
+  - `brew install sequel-ace` : UI for mysql dB.
+
+- Install Redis
+  - `brew install redis`
+  - `brew services start redis`
+
+- Check for redis-working
+  - `redis-cli ping`
+  - `brew install redis-pro` : similar to sequel pro for redis
+
+- Install Kafka
+  - `brew install kafka`
+  - `brew services start kafka`
+
+- Install Zookeeper
+  - `brew install zookeeper`
+  - `zkserver start`
+
+- Install MongoDB
+  - `brew install mongodb-community`
+  - `brew services start mongodb/brew/mongodb-community`
+
+- Install Docker
+  - `brew install --cask docker`
 
 # Notes
 
-- Hibernate is java based ORM tool that provides framework for mapping application domain objects to
+- **Hibernate** : Hibernate is java based ORM tool that provides framework for mapping application domain objects to
   the relational database tables and vice versa. Separate Dependency injection not required as
   Spring Data includes hibernate dependency.
-- Spring Boot 3.x requires to use version 2 of springdoc-openapi and springdoc-openapi dependency
+- **Swagger** : Spring Boot 3.x requires to use version 2 of springdoc-openapi and springdoc-openapi dependency
   already includes Swagger UI.
-- CRUD refers Create, Read, Update, Delete operations.
-- By default, beans are singleton in Spring. Singleton beans are created only once and shared in
+- **CRUD** : CRUD refers Create, Read, Update, Delete operations.
+- **Spring Beans** : By default, beans are singleton in Spring. Singleton beans are created only once and shared in
   application.

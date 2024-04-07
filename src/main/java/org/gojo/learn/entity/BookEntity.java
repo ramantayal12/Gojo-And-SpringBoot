@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "books")
-public class Book {
+public class BookEntity {
 
   private String sid;
   private String firstName;

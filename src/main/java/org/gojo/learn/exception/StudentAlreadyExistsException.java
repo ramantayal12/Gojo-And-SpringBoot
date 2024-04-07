@@ -1,8 +1,20 @@
 package org.gojo.learn.exception;
 
-public class StudentAlreadyExistsException extends RuntimeException {
+import org.springframework.http.HttpStatus;
 
-  public StudentAlreadyExistsException(String message) {
-    super(message);
+public class StudentAlreadyExistsException extends BaseGojoException {
+
+  public StudentAlreadyExistsException() {
+    super("STUDENT_ALREADY_EXISTS");
+  }
+
+  @Override
+  public String getErrorCode() {
+    return "ERROR_002";
+  }
+
+  @Override
+  public HttpStatus getHttpStatus() {
+    return HttpStatus.NOT_FOUND;
   }
 }

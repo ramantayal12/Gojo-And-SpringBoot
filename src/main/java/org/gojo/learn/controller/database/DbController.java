@@ -1,9 +1,9 @@
-package org.gojo.learn.controller;
+package org.gojo.learn.controller.database;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.Optional;
-import org.gojo.learn.entity.Book;
-import org.gojo.learn.entity.User;
+import org.gojo.learn.entity.BookEntity;
+import org.gojo.learn.entity.UserEntity;
 import org.gojo.learn.repository.BookRepository;
 import org.gojo.learn.repository.UserRepository;
 import org.gojo.learn.serialisation.SerialisationUtil;
@@ -37,36 +37,36 @@ public class DbController {
   }
 
   @PostMapping(path = "/user/add") // Map ONLY POST Requests
-  public ResponseEntity<User> addNewUser(
-      @RequestBody User user
+  public ResponseEntity<UserEntity> addNewUser(
+      @RequestBody UserEntity userEntity
   ) {
-    userRepository.save(user);
-    return ResponseEntity.ok(user);
+    userRepository.save(userEntity);
+    return ResponseEntity.ok(userEntity);
   }
 
-  @GetMapping(path = "/user/get/{userId}")
-  public ResponseEntity<User> getUser(@PathVariable("userId") Long userId) {
-    Optional<User> user = userRepository.findById(userId);
+  @GetMapping(path = "/user/get-by-id/{user-id}")
+  public ResponseEntity<UserEntity> getUser(@PathVariable("user-id") Long userId) {
+    Optional<UserEntity> user = userRepository.findById(userId);
     return ResponseEntity.ok(user.orElse(null));
   }
 
   // Note : direct return type like User/String was not working but it was working
   // when wrapped inside ResponseEntity
-  @GetMapping(path = "/user/getAllUsers")
+  @GetMapping(path = "/user/get-all-users")
   public ResponseEntity<String> getAllUsers() throws JsonProcessingException {
     String response = SerialisationUtil.serialize(userRepository.findAll());
     return ResponseEntity.ok(response);
   }
 
   @PostMapping(path = "/book/add")
-  public ResponseEntity<Book> addNewBook(
-      @RequestBody Book book
+  public ResponseEntity<BookEntity> addNewBook(
+      @RequestBody BookEntity bookEntity
   ) {
-    return ResponseEntity.ok(bookRepository.save(book));
+    return ResponseEntity.ok(bookRepository.save(bookEntity));
   }
 
-  @GetMapping(path = "/book/{lastName}")
-  public ResponseEntity<Book> getBookByLastName(@RequestParam("lastName") String lastName) {
+  @GetMapping(path = "/book/{lastname}")
+  public ResponseEntity<BookEntity> getBookByLastName(@RequestParam("lastname") String lastName) {
     return ResponseEntity.ok(bookRepository.findByLastName(lastName));
   }
 }
