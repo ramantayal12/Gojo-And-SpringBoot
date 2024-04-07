@@ -1,8 +1,20 @@
 package org.gojo.learn.exception;
 
-public class StudentNotFoundException extends RuntimeException {
+import org.springframework.http.HttpStatus;
 
-  public StudentNotFoundException(String message) {
-    super(message);
+public class StudentNotFoundException extends BaseGojoException {
+
+  public StudentNotFoundException() {
+    super("STUDENT_NOT_FOUND");
+  }
+
+  @Override
+  public String getErrorCode() {
+    return "ERROR_001";
+  }
+
+  @Override
+  public HttpStatus getHttpStatus() {
+    return HttpStatus.NOT_FOUND;
   }
 }

@@ -2,13 +2,13 @@ package org.gojo.learn.exception;
 
 import org.springframework.http.HttpStatus;
 
-public abstract class BasePtpException extends Exception {
+public abstract class BaseGojoException extends Exception {
 
-  public BasePtpException(String message) {
+  public BaseGojoException(String message) {
     super(message);
   }
 
-  public BasePtpException(String message, Throwable cause) {
+  public BaseGojoException(String message, Throwable cause) {
     super(message, cause);
   }
 

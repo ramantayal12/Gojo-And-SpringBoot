@@ -22,7 +22,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableCaching
 @EnableScheduling
-// @EnableSwagger2
 public class MainApplication {
 
   public static void main(String[] args) {

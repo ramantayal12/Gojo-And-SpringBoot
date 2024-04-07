@@ -1,6 +1,5 @@
 package org.gojo.learn.entity;
 
-
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +12,7 @@ import org.gojo.learn.entity.base.BaseEntity;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User extends BaseEntity {
+public class UserEntity extends BaseEntity {
 
   private long userId;
   private String userName;

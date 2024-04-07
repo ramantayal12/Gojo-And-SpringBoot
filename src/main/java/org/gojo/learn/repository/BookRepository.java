@@ -1,11 +1,11 @@
 package org.gojo.learn.repository;
 
-import org.gojo.learn.entity.Book;
+import org.gojo.learn.entity.BookEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface BookRepository extends MongoRepository<Book, Long> {
+public interface BookRepository extends MongoRepository<BookEntity, Long> {
 
-  Book findByFirstName(String firstName);
+  BookEntity findByFirstName(String firstName);
 
-  Book findByLastName(String lastName);
+  BookEntity findByLastName(String lastName);
 }

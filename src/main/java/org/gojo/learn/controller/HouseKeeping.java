@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/starting")
-public class HelloRestController {
+public class HouseKeeping {
 
   private final String appName;
   private final IdGenerator idGenerator;
@@ -19,7 +19,7 @@ public class HelloRestController {
    * @Value will pick value for key "spring.application.name" from application.properties file
    */
   @Autowired
-  public HelloRestController(@Value("${spring.application.name}") String appName,
+  public HouseKeeping(@Value("${spring.application.name}") String appName,
       IdGenerator idGenerator) {
     this.appName = appName;
     this.idGenerator = idGenerator;
