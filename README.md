@@ -41,3 +41,6 @@ Models/Entities : https://www.baeldung.com/java-entity-vs-dto#:~:text=In%20our%2
   Spring Data includes hibernate dependency.
 - Spring Boot 3.x requires to use version 2 of springdoc-openapi and springdoc-openapi dependency
   already includes Swagger UI.
+- CRUD refers Create, Read, Update, Delete operations.
+- By default, beans are singleton in Spring. Singleton beans are created only once and shared in
+  application.

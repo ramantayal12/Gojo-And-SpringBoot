@@ -1,9 +1,9 @@
 package org.gojo.learn.service.implementation;
 
 import org.gojo.learn.dto.StudentDto;
+import org.gojo.learn.entity.StudentEntity;
 import org.gojo.learn.exception.StudentAlreadyExistsException;
 import org.gojo.learn.exception.StudentNotFoundException;
-import org.gojo.learn.entity.StudentEntity;
 import org.gojo.learn.repository.StudentRepoWithRedis;
 import org.gojo.learn.service.StudentServiceWithCache;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class StudentServiceWithCacheImpl implements StudentServiceWithCache {
     var existingEntity = studentRepoWithRedis.findById(studentDto.getId());
 
     // if entity already exists in db then don't insert it
-    if(existingEntity.isPresent()){
+    if (existingEntity.isPresent()) {
       throw new StudentAlreadyExistsException("Student Already Exists in Db");
     }
     StudentEntity studentEntity = StudentEntity.builder()

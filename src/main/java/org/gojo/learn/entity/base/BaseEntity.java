@@ -1,7 +1,5 @@
 package org.gojo.learn.entity.base;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
@@ -21,23 +19,19 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class BaseEntity {
 
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @jakarta.persistence.Column(name = "id", nullable = false, updatable = false)
-  @JsonProperty(value = "id")
+  @Column(name = "id", nullable = false, updatable = false)
   @Id
   private Long id;
 
   @Version
-  @jakarta.persistence.Column(name = "version")
-  @JsonIgnore
+  @Column(name = "version")
   private Long version;
 
-  @jakarta.persistence.Column(name = "created_at")
-  @JsonProperty("created_at")
+  @Column(name = "created_at")
   @CreatedDate
   private LocalDateTime createdAt;
 
   @Column(name = "updated_at")
-  @JsonProperty("updated_at")
   @LastModifiedDate
   private LocalDateTime updatedAt;
 

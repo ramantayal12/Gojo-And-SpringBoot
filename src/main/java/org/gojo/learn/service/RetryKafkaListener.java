@@ -10,28 +10,28 @@ import org.springframework.stereotype.Service;
 @Service
 public class RetryKafkaListener {
 
+  private final KafkaProducerService kafkaProducerService;
   int cnt = 0;
-      private final KafkaProducerService kafkaProducerService;
 
-      @Autowired
-      public RetryKafkaListener(KafkaProducerService kafkaProducerService) {
-          this.kafkaProducerService = kafkaProducerService;
-      }
+  @Autowired
+  public RetryKafkaListener(KafkaProducerService kafkaProducerService) {
+    this.kafkaProducerService = kafkaProducerService;
+  }
 
-      @KafkaListener(topics = "retry-topic", groupId = "retry-group")
-      @RetryableTopic(
-          attempts = "3",
-          backoff = @Backoff(delay = 1000),
-          include = StudentAlreadyExistsException.class
-      )
-      public void listen(String message) {
+  @KafkaListener(topics = "retry-topic", groupId = "retry-group")
+  @RetryableTopic(
+      attempts = "3",
+      backoff = @Backoff(delay = 1000),
+      include = StudentAlreadyExistsException.class
+  )
+  public void listen(String message) {
 
-          System.out.println("Received message: " + message);
+    System.out.println("Received message: " + message);
 
-          if( cnt < 4 ){
-            throw new StudentAlreadyExistsException("Student already exists");
-          }
+    if (cnt < 4) {
+      throw new StudentAlreadyExistsException("Student already exists");
+    }
 
-      }
+  }
 
 }

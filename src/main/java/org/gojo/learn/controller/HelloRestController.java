@@ -35,7 +35,7 @@ public class HelloRestController {
    * @PathVariable is pathParam that we have to specify in path
    */
   @GetMapping("/getUniqueWorkflowId")
-  public String getRandomIdUsingSecureRandom(@RequestParam("prefix") String prefix){
+  public String getRandomIdUsingSecureRandom(@RequestParam("prefix") String prefix) {
 
     return idGenerator.generateId(prefix);
 

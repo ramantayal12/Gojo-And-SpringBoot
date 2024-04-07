@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class StateMachineFlow {
 
-  private final StateMachine<String, String> stateMachine;;
+  private final StateMachine<String, String> stateMachine;
 
   @Autowired
   public StateMachineFlow(StateMachine<String, String> stateMachine) {
     this.stateMachine = stateMachine;
   }
 
-  private void process(){
+  private void process() {
     stateMachine.startReactively();
     stateMachine.getState();
 
@@ -28,7 +28,7 @@ public class StateMachineFlow {
     stateMachine.getState();
   }
 
-  private void sendMachineEvent(String eventName){
+  private void sendMachineEvent(String eventName) {
     stateMachine.sendEvent("E!");
   }
 }
