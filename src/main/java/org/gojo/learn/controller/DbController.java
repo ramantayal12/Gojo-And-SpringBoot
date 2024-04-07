@@ -3,10 +3,10 @@ package org.gojo.learn.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.Optional;
 import org.gojo.learn.entity.Book;
+import org.gojo.learn.entity.User;
 import org.gojo.learn.repository.BookRepository;
 import org.gojo.learn.repository.UserRepository;
 import org.gojo.learn.serialisation.SerialisationUtil;
-import org.gojo.learn.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -61,7 +61,7 @@ public class DbController {
   @PostMapping(path = "/book/add")
   public ResponseEntity<Book> addNewBook(
       @RequestBody Book book
-  ){
+  ) {
     return ResponseEntity.ok(bookRepository.save(book));
   }
 

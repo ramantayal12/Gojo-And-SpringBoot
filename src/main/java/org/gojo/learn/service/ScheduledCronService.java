@@ -12,7 +12,7 @@ public class ScheduledCronService {
   Logger logger = LoggerFactory.getLogger(ScheduledCronService.class);
 
   @Scheduled(fixedRate = 5, timeUnit = TimeUnit.SECONDS)
-  public void printMessage(){
+  public void printMessage() {
     logger.info("Hello Cron");
   }
 

@@ -1,6 +1,6 @@
 package org.gojo.learn.exception;
 
-public class EventNotFoundException extends RuntimeException{
+public class EventNotFoundException extends RuntimeException {
 
   public EventNotFoundException(String message) {
     super(message);
