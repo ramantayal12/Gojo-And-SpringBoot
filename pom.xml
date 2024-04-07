@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.example</groupId>
+  <groupId>org.gojo.learn</groupId>
   <artifactId>Gojo-And-SpringBoot</artifactId>
   <version>1.0-SNAPSHOT</version>
 
@@ -68,28 +68,16 @@
       <artifactId>spring-boot-starter-data-mongodb</artifactId>
     </dependency>
 
-    <!--    dependency for redis integration -->
-    <!--    redis is mainly used for caching -->
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.data</groupId>-->
-<!--      <artifactId>spring-data-redis</artifactId>-->
-<!--      <version>3.2.0</version>-->
-<!--    </dependency>-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-cache</artifactId>
     </dependency>
 
-    <!-- dependency for spring boot kafka integration -->
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.boot</groupId>-->
-<!--      <artifactId>spring-boot-starter-data-cassandra</artifactId>-->
-<!--    </dependency>-->
-
     <!--    Dependency requirement for kafka integration-->
     <dependency>
       <groupId>org.springframework.kafka</groupId>
       <artifactId>spring-kafka</artifactId>
+      <version>3.1.0</version>
     </dependency>
 
     <!-- Dependency for Grafana -->
@@ -103,19 +91,12 @@
       <scope>runtime</scope>
     </dependency>
 
-    <!-- hibernate dependency -->
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-core</artifactId>
-    </dependency>
-
     <!-- Dependency for Spring state machine-->
     <dependency>
       <groupId>org.springframework.statemachine</groupId>
       <artifactId>spring-statemachine-core</artifactId>
       <version>3.2.0</version>
     </dependency>
-
 
   </dependencies>
 
