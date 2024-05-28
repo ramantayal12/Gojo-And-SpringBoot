@@ -51,6 +51,7 @@ Models/Entities : https://www.baeldung.com/java-entity-vs-dto#:~:text=In%20our%2
 
 # Notes
 
+- **Modules Introduction** : During multi module introduction, keep track of basePackages in @EnableRepositories, @ComponentScan and similar annotations.
 - **Hibernate** : Hibernate is java based ORM tool that provides framework for mapping application domain objects to
   the relational database tables and vice versa. Separate Dependency injection not required as
   Spring Data includes hibernate dependency.
