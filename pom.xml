@@ -7,6 +7,13 @@
   <groupId>org.gojo.learn</groupId>
   <artifactId>Gojo-And-SpringBoot</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>gojo-and-spring-boot-sdk</module>
+    <module>gojo-and-spring-boot-service</module>
+    <module>gojo-and-spring-boot-server</module>
+    <module>gojo-and-spring-boot-commons</module>
+  </modules>
 
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
@@ -20,6 +27,48 @@
     <version>3.1.2</version>
     <relativePath/>
   </parent>
+
+  <dependencyManagement>
+    <dependencies>
+
+      <!-- lombok library : for default getters/setters/builders-->
+      <!-- minimum version with java17 is 1.18.30-->
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.30</version>
+      </dependency>
+
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.33</version>
+      </dependency>
+
+      <!--    Spring Boot 3.x requires to use version 2 of springdoc-openapi:-->
+      <!--    springdoc-openapi dependency already includes Swagger UI-->
+      <dependency>
+        <groupId>org.springdoc</groupId>
+        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        <version>2.3.0</version>
+      </dependency>
+
+      <!--    Dependency requirement for kafka integration-->
+      <dependency>
+        <groupId>org.springframework.kafka</groupId>
+        <artifactId>spring-kafka</artifactId>
+        <version>3.1.0</version>
+      </dependency>
+
+      <!-- Dependency for Spring state machine-->
+      <dependency>
+        <groupId>org.springframework.statemachine</groupId>
+        <artifactId>spring-statemachine-core</artifactId>
+        <version>3.2.0</version>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
 
@@ -50,7 +99,6 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.33</version>
     </dependency>
 
     <!--    Spring Boot 3.x requires to use version 2 of springdoc-openapi:-->
@@ -58,7 +106,6 @@
     <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-      <version>2.3.0</version>
     </dependency>
 
     <!--    Dependency for mongodb Integration -->
@@ -76,7 +123,6 @@
     <dependency>
       <groupId>org.springframework.kafka</groupId>
       <artifactId>spring-kafka</artifactId>
-      <version>3.1.0</version>
     </dependency>
 
     <!-- Dependency for Grafana -->
@@ -94,7 +140,6 @@
     <dependency>
       <groupId>org.springframework.statemachine</groupId>
       <artifactId>spring-statemachine-core</artifactId>
-      <version>3.2.0</version>
     </dependency>
 
   </dependencies>
