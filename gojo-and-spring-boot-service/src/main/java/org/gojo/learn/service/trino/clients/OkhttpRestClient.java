@@ -1,5 +1,7 @@
 package org.gojo.learn.service.trino.clients;
 
+import static org.gojo.learn.service.trino.util.TrinoUtils.getRequestBody;
+
 import java.io.IOException;
 import java.util.Map;
 import java.util.Optional;
@@ -7,6 +9,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import org.gojo.learn.service.trino.enums.ClientType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

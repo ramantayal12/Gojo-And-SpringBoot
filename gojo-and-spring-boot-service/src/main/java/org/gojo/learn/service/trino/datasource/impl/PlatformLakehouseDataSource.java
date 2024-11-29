@@ -3,6 +3,8 @@ package org.gojo.learn.service.trino.datasource.impl;
 
 import org.gojo.learn.service.trino.config.TrinoConfig;
 import org.gojo.learn.service.trino.datasource.TrinoDataSource;
+import org.gojo.learn.service.trino.enums.DataSourceType;
+import org.gojo.learn.service.trino.enums.PlatformType;
 import org.gojo.learn.service.trino.service.token.TokenFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
