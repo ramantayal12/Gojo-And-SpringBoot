@@ -55,12 +55,4 @@ public class MainApplication {
     SpringApplication.run(MainApplication.class, args);
   }
 
-  @Bean
-  public CacheManager cacheManager() {
-
-    // this method is required for redis caching
-    return new ConcurrentMapCacheManager(CACHE_NAME);
-
-  }
-
 }
