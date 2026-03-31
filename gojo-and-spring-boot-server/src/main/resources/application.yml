@@ -30,3 +30,24 @@ spring.kafka:
   bootstrap-servers: ${KAFKA_BOOTSTRAP_ADDRESS:localhost:9092}
   consumer:
     group-id: ${KAFKA_GROUP_ID:my-group-id}
+
+otel:
+  instrumentation:
+    micrometer:
+      enabled: true
+    jvm:
+      enabled: true
+
+  exporter:
+    otlp:
+      endpoint: http://localhost:4317
+      protocol: grpc
+      headers:
+        x-api-key: "e058796fb7d9df5468942dac6236082a1d245a48264805e694302391a9d11045"
+
+  metrics:
+    export:
+      interval: 5s
+  resource:
+    attributes:
+      service.name: my-spring-app
