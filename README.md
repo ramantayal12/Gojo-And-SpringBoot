@@ -20,34 +20,60 @@ Models/Entities : https://www.baeldung.com/java-entity-vs-dto#:~:text=In%20our%2
   Boot : https://medium.com/@aedemirsen/spring-boot-global-exception-handler-842d7143cf2a
 - Java8 Time Library : https://www.baeldung.com/java-8-date-time-intro
 
+# Prerequisites
+
+- Docker : `brew install --cask docker`
+
 # Services Start/Restart/Stop
 
-- Install Mysql 
-  - `brew services start mysql`
-  - `brew install sequel-ace` : UI for mysql dB.
+### Start all services (MySQL, MongoDB, Redis, Kafka)
 
-- Install Redis
-  - `brew install redis`
-  - `brew services start redis`
+```bash
+docker compose up -d
+```
 
-- Check for redis-working
-  - `redis-cli ping`
-  - `brew install redis-pro` : similar to sequel pro for redis
+### Stop all services
 
-- Install Kafka
-  - `brew install kafka`
-  - `brew services start kafka`
+```bash
+docker compose down
+```
 
-- Install Zookeeper
-  - `brew install zookeeper`
-  - `zkserver start`
+### Stop and remove volumes (wipes data)
 
-- Install MongoDB
-  - `brew install mongodb-community`
-  - `brew services start mongodb/brew/mongodb-community`
+```bash
+docker compose down -v
+```
 
-- Install Docker
-  - `brew install --cask docker`
+### Individual services
+
+```bash
+# Start only specific services
+docker compose up -d mysql mongodb redis
+
+# View logs
+docker compose logs -f mysql
+
+# Restart a single service
+docker compose restart mysql
+```
+
+### MySQL
+- Runs on `localhost:3306`
+- Root password: `root123` | Database: `curses`
+- Connect via CLI: `docker exec -it mysql mysql -uroot -proot123`
+- UI client: [Sequel Ace](https://sequel-ace.com/) (`brew install --cask sequel-ace`)
+
+### MongoDB
+- Runs on `localhost:27017`
+- Connect via CLI: `docker exec -it mongodb mongosh`
+
+### Redis
+- Runs on `localhost:6379`
+- Check if running: `docker exec -it redis redis-cli ping`
+
+### Kafka (KRaft mode, no Zookeeper)
+- Runs on `localhost:9092`
+- Uses KRaft (built-in consensus) — no Zookeeper dependency
 
 # Notes
 

@@ -1,6 +1,7 @@
 package org.gojo.learn.service.controller.database;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import jakarta.annotation.PostConstruct;
 import org.gojo.learn.service.dto.StudentDto;
 import org.gojo.learn.service.entity.StudentEntity;
 import org.gojo.learn.service.exception.BaseGojoException;
@@ -16,11 +17,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController // restController can be read by swagger but not controller
+@RestController // @RestController can be read by swagger but not @Controller
 @RequestMapping(path = "/cache")
 public class StudentRestController {
 
   private final StudentServiceWithCache studentServiceWithCache;
+
+  @PostConstruct
+  public void init() {
+    System.out.println("OTEL HEADERS: " + System.getenv("OTEL_EXPORTER_OTLP_HEADERS"));
+  }
 
   @Autowired
   public StudentRestController(StudentServiceWithCache studentServiceWithCache) {
